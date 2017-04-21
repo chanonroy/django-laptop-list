@@ -59,3 +59,6 @@ class Laptop(models.Model):
 
     def __str__(self):
         return self.model_name + ' ({})'.format(self.year)
+
+    def GPU(self):
+        return "\n".join([str(g) for g in self.gpu.all()])
