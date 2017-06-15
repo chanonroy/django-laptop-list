@@ -1,10 +1,11 @@
 from rest_framework import serializers
-from laptops.models import Laptop
+from laptops.models import Laptop, CPU
 
 
 class LaptopSerializer(serializers.ModelSerializer):
+    cpu = serializers.StringRelatedField()
+    manufacturer = serializers.StringRelatedField()
 
     class Meta:
         model = Laptop
-        fields = ('model_name', 'year')
-        # fields = '__all__'
+        fields = ('id', 'manufacturer', 'model_name', 'year', 'cpu', 'weight', 'ram', 'storage', 'battery', 'gpu')
