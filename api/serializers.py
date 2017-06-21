@@ -5,6 +5,7 @@ from laptops.models import Laptop, CPU
 class LaptopSerializer(serializers.ModelSerializer):
     cpu = serializers.StringRelatedField()
     manufacturer = serializers.StringRelatedField()
+    gpu = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Laptop
