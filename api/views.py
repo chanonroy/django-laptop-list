@@ -27,8 +27,10 @@ class LaptopsFilter(APIView):
         cpu = self.request.query_params.get('cpu', None)
         year = self.request.query_params.get('year', None)
         ram = self.request.query_params.get('ram', None)
+
         filterargs = {'year': year, 'ram': ram}
-        return Laptop.objects.filter(**filterargs)
+
+        return Laptop.objects.filter(year=year, ram=None)
 
     def get(self, request):
         queryset = self.get_object()

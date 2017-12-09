@@ -1,7 +1,6 @@
 appdirs==1.4.3
 click==6.7
 dj-database-url==0.4.1
-Django==1.10.4
 djangorestframework==3.6.2
 gunicorn==19.6.0
 packaging==16.8
