@@ -9,4 +9,15 @@ class LaptopSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Laptop
-        fields = ('id', 'manufacturer', 'model_name', 'year', 'cpu', 'weight', 'ram', 'storage', 'battery', 'gpu')
+        fields = (
+            'id', 
+            'manufacturer',
+            'model_name',
+            'year',
+            'cpu',
+            'weight',
+            'ram',
+            'battery',
+            'gpu',
+            'benchmark'
+        )

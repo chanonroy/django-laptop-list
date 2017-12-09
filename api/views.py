@@ -7,30 +7,22 @@ from laptops.models import Laptop
 from .serializers import LaptopSerializer
 
 
-class LaptopsAll(APIView):
+def gather_arguments(request, params):
+    """ Build list of filtering parameters """
+    args = {}
+    for param in params:
+        value = request.query_params.get(param, None)
+        if value is not None:
+            args[param] = value
+    return args
+
+class Laptops(APIView):
 
     def get_object(self):
-        try:
-            return Laptop.objects.all()
-        except Laptop.DoesNotExist:
-            raise Http404
+        filter_params = ['cpu', 'year', 'ram']
+        filter_args = gather_arguments(self.request, filter_params)
 
-    def get(self, request):
-        queryset = self.get_object()
-        serializer = LaptopSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-
-class LaptopsFilter(APIView):
-
-    def get_object(self):
-        cpu = self.request.query_params.get('cpu', None)
-        year = self.request.query_params.get('year', None)
-        ram = self.request.query_params.get('ram', None)
-
-        filterargs = {'year': year, 'ram': ram}
-
-        return Laptop.objects.filter(year=year, ram=None)
+        return Laptop.objects.filter(**filter_args)
 
     def get(self, request):
         queryset = self.get_object()

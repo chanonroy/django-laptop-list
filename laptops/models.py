@@ -16,7 +16,6 @@ class GPU(models.Model):
 
     name = models.CharField(max_length=255)
     memory = models.IntegerField()
-    benchmark = models.IntegerField()
     description = models.TextField(blank=True)
 
     class Meta:
@@ -52,9 +51,11 @@ class Laptop(models.Model):
     gpu = models.ManyToManyField(GPU)
     weight = models.FloatField(blank=True, null=True)
     ram = models.IntegerField()
-    storage = models.IntegerField()
+    ssd = models.IntegerField(blank=True, null=True)
+    hdd = models.IntegerField(blank=True, null=True)
     battery = models.FloatField(max_length=2)
     price = models.IntegerField(blank=True, null=True)
+    benchmark = models.IntegerField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):

@@ -10,7 +10,7 @@ class LaptopAdmin(admin.ModelAdmin):
 
 @admin.register(GPU)
 class GPUAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'id', 'memory', 'benchmark')
+    list_display = ('__str__', 'id', 'memory')
     search_fields = ['name', 'id']
 
 
