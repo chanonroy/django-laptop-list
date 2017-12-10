@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 BASE_DIR = dirname(dirname(__file__))
 PROJECT_ROOT = dirname(dirname(dirname(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, 'dist')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
+    STATIC_DIR,
 ]
 
 # Simplified static file serving.

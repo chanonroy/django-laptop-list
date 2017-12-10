@@ -1,0 +1,21 @@
+$break-lg: 1200px;
+$break-md: 992px;
+$break-sm: 768px;
+$break-xs: 556px;
+
+.container {
+    // from Bootstrap
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+  
+    @media screen and (min-width: $break-sm) {
+      width: 750px;
+    }
+    @media screen and (min-width: $break-md) {
+      width: 970px;
+    }
+    @media screen and (min-width: $break-lg) {
+      width: 970px;
+    }
+}

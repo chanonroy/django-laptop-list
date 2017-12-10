@@ -19,10 +19,15 @@ def gather_arguments(request, params):
 class Laptops(APIView):
 
     def get_object(self):
+        # Filtering
         filter_params = ['cpu', 'year', 'ram']
         filter_args = gather_arguments(self.request, filter_params)
+        queryset = Laptop.objects.filter(**filter_args)
 
-        return Laptop.objects.filter(**filter_args)
+        # Sorting
+        # Pagination
+
+        return queryset
 
     def get(self, request):
         queryset = self.get_object()

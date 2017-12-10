@@ -1,20 +1,33 @@
 <!DOCTYPE html>
- <html>
+{% load static %}
+
+<html>
    <head>
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <title> LaptopClub </title>
-     <link rel="stylesheet" type="text/css" href=" ">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
    </head>
    <body>
-     <h1>Hello, World!</h1>
+     
+     <div class="container">
 
-    {% for laptop in laptops %}
-     <p> {{ laptop.manufacturer }} </p>
-     <p> {{ laptop.year }} </p>
-    {% endfor %}
+      <h1>Hello, World!</h1>
 
-     <script type="text/javascript" src=" "></script>
+      {% for laptop in laptops %}
+        <p> {{ laptop.model_name }} ({{ laptop.year }}) </p>
+        <p> {{ laptop.cpu }} </p>
+        <br>
+        
+        {% verbatim %}
+        {% endverbatim %}
+
+      {% endfor %} 
+
+
+    </div>
+
+     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
    </body>
  </html>
